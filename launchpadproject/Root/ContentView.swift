@@ -1,16 +1,14 @@
-//
-//  ContentView.swift
-//  launchpadproject
-//
-//  Created by Ayush on 20/10/2025.
-//
+// ContentView.swift
 
 import SwiftUI
 
 struct ContentView: View {
+    // todo should i be adding @StateObject var eventData = eventData()
+    
     var body: some View {
         TabView {
-            Text("Map view placeholder")
+
+            MapView()
                 .tabItem {
                     Image(systemName: "map.fill")
                     Text("Map")
@@ -22,13 +20,13 @@ struct ContentView: View {
                     Text("Events")
                 }
             
-            Text("Profile placeholder")
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                     Text("Profile")
                 }
         }
-        .padding()
+        .environmentObject(eventData)
     }
 }
 

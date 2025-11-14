@@ -1,9 +1,4 @@
-//
-//  launchpadprojectApp.swift
-//  launchpadproject
-//
-//  Created by Ayush on 20/10/2025.
-//
+// launchpadprojectApp.swift
 
 import SwiftUI
 

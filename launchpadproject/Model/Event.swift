@@ -1,0 +1,41 @@
+//  Event.swift
+
+import SwiftUI
+
+struct Event: Identifiable {
+    let id = UUID()
+    var name: String
+    var date: Date
+    var startTime: Date
+    var endTime: Date
+    
+    // unfinished. likely adding location details (e.g. name, coords), capacity
+    
+    var isStarred: Bool = false
+    
+    var dayText: String {
+        let formatter = DateFormatter()
+        if Calendar.current.isDateInToday(date) {
+            return "Today"
+        } else if Calendar.current.isDateInTomorrow(date){
+            return "Tomorrow"
+        } else {
+            formatter.dateFormat = "MM dd, yyyy"
+            return formatter.string(from: date)
+        }
+    }
+    
+    static let mockEvents: [Event] = [
+        Event(name: "Beach Cleanup",
+              date: Date(),
+              startTime: Date(),
+              endTime: Date().addingTimeInterval(3600)
+              ),
+        
+        Event(name: "Book Club",
+              date: Date(),
+              startTime: Date(),
+              endTime: Date().addingTimeInterval(14400)
+        )
+    ]
+}
