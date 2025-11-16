@@ -10,35 +10,9 @@
 		9E76BF9B2EA6B512001F1E44 /* launchpadproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = launchpadproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9EACED192EBD5DD00085B6FA /* Exceptions for "launchpadproject" folder in "launchpadproject" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Views/EventDetailView.swift,
-				Views/MapView.swift,
-			);
-			target = 9E76BF9A2EA6B512001F1E44 /* launchpadproject */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		9EACED1A2EBD5DD00085B6FA /* Exceptions for "launchpadproject" folder in "Copy Bundle Resources" phase from "launchpadproject" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 9E76BF992EA6B512001F1E44 /* Resources */;
-			membershipExceptions = (
-				Views/EventDetailView.swift,
-				Views/MapView.swift,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9E76BF9D2EA6B512001F1E44 /* launchpadproject */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9EACED192EBD5DD00085B6FA /* Exceptions for "launchpadproject" folder in "launchpadproject" target */,
-				9EACED1A2EBD5DD00085B6FA /* Exceptions for "launchpadproject" folder in "Copy Bundle Resources" phase from "launchpadproject" target */,
-			);
 			path = launchpadproject;
 			sourceTree = "<group>";
 		};

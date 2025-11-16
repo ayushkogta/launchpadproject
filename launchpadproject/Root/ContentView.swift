@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    // todo should i be adding @StateObject var eventData = eventData()
+    @StateObject var eventData = EventData()
     
     var body: some View {
         TabView {
