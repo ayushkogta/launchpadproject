@@ -25,7 +25,7 @@ struct EventDetailView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "mappin.circle.fill")
-                        Text("Location to be added") // fix this later when implementing mapView
+                        Text("Location to be added") // fix this later when implementing MapView
                     }
                     
                     HStack {
