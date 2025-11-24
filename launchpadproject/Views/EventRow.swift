@@ -16,7 +16,10 @@ struct EventRow: View {
                 
                 HStack {
                     Image(systemName: "mappin.circle")
-                    Text("Location To Be Added") // ADD THIS WHEN THE MAP IMPLEMENTATION HAPPENS. TODO
+                    HStack {
+                        Image(systemName: "mappin.circle")
+                        Text(event.locationName.isEmpty ? "Location TBD" : event.locationName)
+                    }
                 }
                 .font(.caption)
                 .foregroundColor(.gray)

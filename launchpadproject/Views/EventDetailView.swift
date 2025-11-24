@@ -16,8 +16,7 @@ struct EventDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
                 // visual layout here (image, title, description)
-                
-                Text("Event description here")
+                Text(event.description.isEmpty ? "No description was provided for this event." : event.description)
                 // Do stylistic changes later
                 
                 Divider()
@@ -25,7 +24,7 @@ struct EventDetailView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "mappin.circle.fill")
-                        Text("Location to be added") // fix this later when implementing MapView
+                        Text(event.locationName.isEmpty ? "Location not added" : event.locationName)
                     }
                     
                     HStack {

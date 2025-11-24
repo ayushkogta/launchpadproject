@@ -9,6 +9,8 @@ struct Event: Identifiable {
     var date: Date
     var startTime: Date
     var endTime: Date
+    var description: String = ""
+    var locationName: String = ""
     var locationCoordinate: CLLocationCoordinate2D?
     // unfinished. likely adding location details (e.g. name, coords), capacity
     
