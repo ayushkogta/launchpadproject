@@ -45,6 +45,7 @@ struct Event: Identifiable {
               date: Date(),
               startTime: Date(),
               endTime: Date(),
+              locationName: "Wilmeth Active Learning Center",
               locationCoordinate: CLLocationCoordinate2D(latitude: 40.42738610727535, longitude: -86.9137458493646)
              )
     ]
