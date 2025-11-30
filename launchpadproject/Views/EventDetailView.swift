@@ -15,9 +15,8 @@ struct EventDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 15) {
-                // visual layout here (image, title, description)
                 Text(event.description.isEmpty ? "No description was provided for this event." : event.description)
-                // Do stylistic changes later
+                    .padding()
                 
                 Divider()
                 
@@ -26,13 +25,14 @@ struct EventDetailView: View {
                         Image(systemName: "mappin.circle.fill")
                         Text(event.locationName.isEmpty ? "Location not added" : event.locationName)
                     }
+                    .padding()
                     
                     HStack {
                         Image(systemName: "clock")
                         Text("\(formattedTime(event.startTime)) - \(formattedTime(event.endTime))")
                     }
+                    .padding()
                 }
-                // may have to do stylistic changes here when testing (e.g. padding, horizontal vs vertical, color
                 
                 VStack(spacing: 10) {
                     Button {
@@ -43,16 +43,18 @@ struct EventDetailView: View {
                             .padding()
                             .background(isStarred ? Color.green : Color.red)
                             .foregroundColor(Color.white)
-                            // Do stylistic changes later
+                        
                     }
                     NavigationLink(destination: MapView(selectedEvent: event)) {
                         Text("Show Location on Map")
                             .padding()
-                            .background(Color.gray)
-                            // Do stylistic changes later
+                            .background(Color.blue)
+                            .foregroundColor(Color.white)
+                        
                     }
                 }
                 .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }
         }
         .navigationTitle(event.name)
@@ -60,8 +62,8 @@ struct EventDetailView: View {
     }
     
     func formattedTime(_ date: Date) -> String {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            return formatter.string(from: date)
-        }
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
+    }
 }

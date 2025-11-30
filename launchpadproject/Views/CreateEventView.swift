@@ -16,6 +16,9 @@ struct CreateEventView: View {
     @State private var locationName = ""
     @State private var selectedCoordinate: CLLocationCoordinate2D?
     
+    var isValidEvent: Bool {
+        !eventName.isEmpty && startTime < endTime
+    }
     
     var body: some View {
         NavigationView {
@@ -54,8 +57,7 @@ struct CreateEventView: View {
                         eventData.addEvent(newEvent)
                         dismiss()
                     }
-                    // add some sort of functionality to check that it doesn't add an event with incomplete data
-                    // these are required fields
+                    .disabled(!isValidEvent)
                 }
             }
         }

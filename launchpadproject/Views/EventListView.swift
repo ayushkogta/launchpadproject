@@ -1,5 +1,4 @@
 // EventListView.swift
-// view should be stupid - does as displayed not something to figure out
 
 import SwiftUI
 
@@ -29,7 +28,7 @@ struct EventListView: View {
             List {
                 ForEach(sortedKeys, id: \.self) { dayText in
                 
-                    Section(header: Text("\(dayText) | \(formattedDate(for: dayText))").font(.callout)) {
+                    Section(header: Text(dayText).font(.callout))  {
                         ForEach(groupedEvents[dayText] ?? []) { event in
                             NavigationLink(destination: EventDetailView(event: event)) {
                                 EventRow(event: event)
@@ -54,15 +53,5 @@ struct EventListView: View {
                     .environmentObject(eventData)
             }
         }
-    }
-    
-    func formattedDate(for dayText: String) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd, yyyy"
-        
-        if dayText == "Today" || dayText == "Tomorrow" {
-            return ""
-        }
-        return dayText
     }
 }

@@ -15,39 +15,34 @@ struct LocationSearchView: View {
     @State private var searchResults: [MKMapItem] = []
     
     var body: some View {
-        VStack (alignment: .center) {
+        VStack(alignment: .leading) {
             TextField("Search location", text: $locationName)
                 .onChange(of: locationName) { oldValue, newValue in
                     searchLocation(enteredLocation: newValue)
                 }
-            if !searchResults.isEmpty {
-                ForEach(0..<3, id: \.self) { index in
-                    if index < searchResults.count {
-                        Button {
-                            locationName = searchResults[index].name ?? ""
-                            selectedCoordinate = searchResults[index].placemark.coordinate
+            
+            List {
+                ForEach(Array(searchResults.prefix(3)), id: \.self) { item in
+                    Button {
+                        locationName = item.name ?? ""
+                        selectedCoordinate = item.placemark.coordinate
+                        DispatchQueue.main.async {
                             searchResults = []
-                        } label: {
-                            VStack(alignment: .leading) {
-                                Text(searchResults[index].name ?? "")
-                                Text(searchResults[index].placemark.title ?? "")
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
-                            }
                         }
-                    } else {
-                        HStack {
-                            Text("—")
-                                .foregroundColor(.gray.opacity(0.3))
-                            Spacer()
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(item.name ?? "")
+                            Text(item.placemark.title ?? "")
+                                .font(.caption)
+                                .foregroundColor(.gray)
                         }
-                        .frame(height: 40)
                     }
                 }
             }
+            .frame(height: searchResults.isEmpty ? 0 : 150)
         }
     }
-
+    
     func searchLocation(enteredLocation: String) {
         if enteredLocation.isEmpty {
             searchResults = []
@@ -57,8 +52,8 @@ struct LocationSearchView: View {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = enteredLocation
         request.region = MKCoordinateRegion(
-                    center: CLLocationCoordinate2D(latitude: 40.425, longitude: -86.91),
-                    span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            center: CLLocationCoordinate2D(latitude: 40.425, longitude: -86.91),
+            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         )
         
         let search = MKLocalSearch(request: request)
